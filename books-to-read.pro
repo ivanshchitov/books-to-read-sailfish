@@ -38,4 +38,7 @@ TRANSLATIONS += translations/books-to-read-de.ts
 
 DISTFILES += \
     qml/pages/MainPage.qml \
-    qml/pages/AddBookDialog.qml
+    qml/pages/ToReadPage.qml \
+    qml/pages/EditBookDialog.qml \
+    qml/pages/FinishedPage.qml \
+    qml/pages/AllBooksPage.qml

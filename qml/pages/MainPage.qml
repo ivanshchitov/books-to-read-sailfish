@@ -10,7 +10,7 @@ Page {
         PullDownMenu {
             MenuItem {
                 text: qsTr("Add a book")
-                onClicked: pageStack.push(Qt.resolvedUrl("AddBookDialog.qml"))
+                onClicked: pageStack.push(Qt.resolvedUrl("EditBookDialog.qml"))
             }
         }
         PageHeader {
@@ -24,15 +24,16 @@ Page {
 
             Button {
                 text: qsTr("To Read")
+                onClicked: pageStack.push(Qt.resolvedUrl("ToReadPage.qml"))
             }
             Button {
                 text: qsTr("Finished")
+                onClicked: pageStack.push(Qt.resolvedUrl("FinishedPage.qml"))
             }
             Button {
                 text: qsTr("All Books")
+                onClicked: pageStack.push(Qt.resolvedUrl("AllBooksPage.qml"))
             }
         }
     }
 }
-
-

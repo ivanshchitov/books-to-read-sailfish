@@ -2,7 +2,45 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
-    <name>AddBookDialog</name>
+    <name>AllBooksPage</name>
+    <message>
+        <source>Finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Book</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Author</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mark as To Read</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mark as Finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CoverPage</name>
+    <message>
+        <source>Books to read</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>EditBookDialog</name>
     <message>
         <source>Add a book to read</source>
         <translation type="unfinished"></translation>
@@ -25,9 +63,29 @@
     </message>
 </context>
 <context>
-    <name>CoverPage</name>
+    <name>FinishedPage</name>
     <message>
-        <source>Books to read</source>
+        <source>Finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Book</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Author</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mark as To Read</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -51,6 +109,33 @@
     </message>
     <message>
         <source>All Books</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ToReadPage</name>
+    <message>
+        <source>To Read</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Book</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Author</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mark as Finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
