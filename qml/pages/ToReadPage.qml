@@ -7,15 +7,16 @@ Page {
     SilicaListView {
         anchors.fill: parent
         header: PageHeader { title: qsTr("To Read") }
-        model: 10
+        model: bookListModel
+
         delegate: ListItem {
             Column {
                 Label {
-                    text: qsTr("Book") + " " + (model.index + 1)
+                    text: title
                     x: Theme.horizontalPageMargin
                 }
                 Label {
-                    text: qsTr("Author") + " " + (model.index + 1)
+                    text: author
                     x: Theme.horizontalPageMargin
                     font.pixelSize: Theme.fontSizeExtraSmall
                 }

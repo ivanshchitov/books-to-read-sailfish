@@ -119,14 +119,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Book</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Author</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Mark as Finished</source>
         <translation type="unfinished"></translation>
     </message>

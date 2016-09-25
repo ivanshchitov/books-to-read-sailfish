@@ -14,7 +14,9 @@ TARGET = books-to-read
 
 CONFIG += sailfishapp
 
-SOURCES += src/books-to-read.cpp
+SOURCES += src/books-to-read.cpp \
+    src/databasemanager.cpp \
+    src/booklistmodel.cpp
 
 OTHER_FILES += qml/books-to-read.qml \
     qml/cover/CoverPage.qml \
@@ -28,7 +30,7 @@ SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256
 
 # to disable building translations every time, comment out the
 # following CONFIG line
-CONFIG += sailfishapp_i18n
+CONFIG += sailfishapp_i18n console
 
 # German translation is enabled as an example. If you aren't
 # planning to localize your app, remember to comment out the
@@ -42,3 +44,9 @@ DISTFILES += \
     qml/pages/EditBookDialog.qml \
     qml/pages/FinishedPage.qml \
     qml/pages/AllBooksPage.qml
+
+HEADERS += \
+    src/databasemanager.h \
+    src/booklistmodel.h
+
+QT += sql

@@ -23,11 +23,11 @@ Dialog {
             placeholderText: qsTr("Enter an author name of the book")
             EnterKey.enabled: text.length > 0
             EnterKey.iconSource: "image://theme/icon-m-enter-next"
-            EnterKey.onClicked: bookTextField.focus = true
+            EnterKey.onClicked: titleTextField.focus = true
         }
 
         TextField {
-            id: bookTextField
+            id: titleTextField
             width: parent.width
             labelVisible: true
             label: qsTr("Book title:")
@@ -35,9 +35,9 @@ Dialog {
             EnterKey.enabled: text.length > 0
         }
     }
+
+    onAccepted: {
+        databaseManager.insertBook(authorTextField.text, titleTextField.text, false)
+        bookListModel.updateModel()
+    }
 }
-
-
-
-
-
