@@ -42,5 +42,13 @@ Item {
             callback(result.rows)
         });
     }
+
+    function updateBookState(id, finished, callback) {
+        database = LocalStorage.openDatabaseSync("books-to-read", "1.0");
+        database.transaction(function(tx) {
+            tx.executeSql("UPDATE " + booksTableName
+                        + " SET finished = ? WHERE id = ?", [finished, id]);
+        });
+    }
 }
 

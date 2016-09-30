@@ -13,6 +13,7 @@ Page {
     SilicaListView {
         id: listView
         anchors.fill: parent
+        currentIndex: 0
         header: PageHeader {
             title: {
                 if (booksState == BooksStateEnum.ToRead) {
@@ -31,7 +32,7 @@ Page {
                     id: titleLabel
                     text: title
                     x: Theme.horizontalPageMargin
-                    font.strikeout: finished ? true : false
+                    font.strikeout: finished
                 }
                 Label {
                     id: authorLabel
@@ -42,7 +43,16 @@ Page {
             }
             menu: ContextMenu {
                 MenuItem {
-                    text: qsTr("Mark as Finished")
+                    text: finished ? qsTr("Mark as To Read") : qsTr("Mark as Finished")
+                    onClicked:{
+                        console.log(model.index)
+                        booksDao.updateBookState(id, finished ? 0 : 1);
+                        if (booksState != BooksStateEnum.All) {
+                            titleLabel.font.strikeout = !finished;
+                        } else {
+                            listView.model.remove(model.index)
+                        }
+                    }
                 }
                 MenuItem {
                     text: qsTr("Edit")
@@ -57,7 +67,8 @@ Page {
             booksDao.retrieveBooks(booksState, function(books) {
                 for (var i = 0; i < books.length; i++) {
                     var book = books.item(i);
-                    listView.model.addBook(book.author, book.title, book.finished === 1)
+                    listView.model.addBook(book.id, book.author, book.title,
+                                           book.finished === 1)
                 }
             })
         }
