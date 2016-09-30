@@ -45,9 +45,8 @@ Page {
                 MenuItem {
                     text: finished ? qsTr("Mark as To Read") : qsTr("Mark as Finished")
                     onClicked:{
-                        console.log(model.index)
                         booksDao.updateBookState(id, finished ? 0 : 1);
-                        if (booksState != BooksStateEnum.All) {
+                        if (booksState == BooksStateEnum.All) {
                             titleLabel.font.strikeout = !finished;
                         } else {
                             listView.model.remove(model.index)
@@ -60,6 +59,10 @@ Page {
                 }
                 MenuItem {
                     text: qsTr("Delete")
+                    onClicked: {
+                        booksDao.deleteBook(id);
+                        listView.model.remove(model.index)
+                    }
                 }
             }
         }

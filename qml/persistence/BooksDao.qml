@@ -50,5 +50,12 @@ Item {
                         + " SET finished = ? WHERE id = ?", [finished, id]);
         });
     }
+
+    function deleteBook(id) {
+        database = LocalStorage.openDatabaseSync("books-to-read", "1.0");
+        database.transaction(function(tx) {
+            tx.executeSql("DELETE FROM " + booksTableName + " WHERE id = ?", [id]);
+        });
+    }
 }
 
