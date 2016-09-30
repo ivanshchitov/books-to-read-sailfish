@@ -5,6 +5,9 @@ import "../persistence"
 Dialog {
     id: addBookDialog
 
+    property string author
+    property string title
+
     DialogHeader {
         id: header
         title: qsTr("Add a book to read")
@@ -20,6 +23,7 @@ Dialog {
         TextField {
             id: authorTextField
             width: parent.width
+            text: author
             labelVisible: true
             label: qsTr("Author:")
             placeholderText: qsTr("Enter an author name of the book")
@@ -31,6 +35,7 @@ Dialog {
         TextField {
             id: titleTextField
             width: parent.width
+            text: title
             labelVisible: true
             label: qsTr("Book title:")
             placeholderText: qsTr("Enter a book title")
@@ -38,7 +43,8 @@ Dialog {
         }
     }
 
-    onAccepted: {
-        booksDao.create(authorTextField.text, titleTextField.text, false)
+    onDone: {
+        author = authorTextField.text;
+        title = titleTextField.text;
     }
 }

@@ -11,4 +11,8 @@ ListModel {
                    finished: finished
                });
     }
+
+    function updateBook(index, author, title, finished) {
+        set(index, {author: author, title: title, finished: finished})
+    }
 }

@@ -42,12 +42,13 @@ Page {
                 }
             }
             menu: ContextMenu {
+
                 MenuItem {
                     text: finished ? qsTr("Mark as To Read") : qsTr("Mark as Finished")
                     onClicked:{
-                        booksDao.updateBookState(id, finished ? 0 : 1);
+                        booksDao.updateBook(id, author, title, finished ? 0 : 1);
                         if (booksState == BooksStateEnum.All) {
-                            titleLabel.font.strikeout = !finished;
+                            listView.model.updateBook(model.index, author, title, !finished);
                         } else {
                             listView.model.remove(model.index)
                         }
@@ -55,7 +56,14 @@ Page {
                 }
                 MenuItem {
                     text: qsTr("Edit")
-                    onClicked: pageStack.push(Qt.resolvedUrl("EditBookDialog.qml"))
+                    onClicked: {
+                        var dialog = pageStack.push(Qt.resolvedUrl("EditBookDialog.qml"),
+                                              {author: author, title: title})
+                        dialog.accepted.connect(function() {
+                            booksDao.updateBook(id, dialog.author, dialog.title, finished ? 1 : 0);
+                            listView.model.updateBook(model.index, dialog.author, dialog.title, finished);
+                        });
+                    }
                 }
                 MenuItem {
                     text: qsTr("Delete")
@@ -67,6 +75,7 @@ Page {
             }
         }
         function displayBooks() {
+            listView.model.clear();
             booksDao.retrieveBooks(booksState, function(books) {
                 for (var i = 0; i < books.length; i++) {
                     var book = books.item(i);

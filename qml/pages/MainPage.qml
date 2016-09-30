@@ -7,13 +7,20 @@ import "../persistence"
 Page {
     id: mainPage
 
+    BooksDao {id: booksDao}
+
     SilicaFlickable {
         anchors.fill: parent
 
         PullDownMenu {
             MenuItem {
                 text: qsTr("Add a book")
-                onClicked: pageStack.push(Qt.resolvedUrl("EditBookDialog.qml"))
+                onClicked: {
+                    var dialog = pageStack.push(Qt.resolvedUrl("EditBookDialog.qml"))
+                    dialog.accepted.connect(function() {
+                        booksDao.create(dialog.author, dialog.title, false);
+                    })
+                }
             }
         }
         PageHeader {
