@@ -38,7 +38,7 @@ Item {
             } else if (booksState === BooksStateEnum.Finished) {
                 whereFinished = " WHERE finished = 1";
             }
-            var result = tx.executeSql("SELECT * FROM " + booksTableName + whereFinished);
+            var result = tx.executeSql("SELECT * FROM " + booksTableName + whereFinished + " ORDER BY id DESC");
             callback(result.rows)
         });
     }
