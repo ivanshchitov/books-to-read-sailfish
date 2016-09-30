@@ -14,9 +14,8 @@ TARGET = books-to-read
 
 CONFIG += sailfishapp
 
-SOURCES += src/books-to-read.cpp \
-    src/databasemanager.cpp \
-    src/booklistmodel.cpp
+SOURCES += \
+    src/books-to-read.cpp
 
 OTHER_FILES += qml/books-to-read.qml \
     qml/cover/CoverPage.qml \
@@ -43,10 +42,10 @@ DISTFILES += \
     qml/pages/ToReadPage.qml \
     qml/pages/EditBookDialog.qml \
     qml/pages/FinishedPage.qml \
-    qml/pages/AllBooksPage.qml
+    qml/pages/AllBooksPage.qml \
+    qml/persistence/BooksDao.qml \
+    qml/persistence/BookListModel.qml
 
-HEADERS += \
-    src/databasemanager.h \
-    src/booklistmodel.h
+HEADERS +=
 
 QT += sql

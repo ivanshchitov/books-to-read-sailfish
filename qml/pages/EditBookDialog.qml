@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-
+import "../persistence"
 
 Dialog {
     id: addBookDialog
@@ -9,6 +9,8 @@ Dialog {
         id: header
         title: qsTr("Add a book to read")
     }
+
+    BooksDao { id: booksDao }
 
     Column {
         width: parent.width
@@ -37,7 +39,6 @@ Dialog {
     }
 
     onAccepted: {
-        databaseManager.insertBook(authorTextField.text, titleTextField.text, false)
-        bookListModel.updateModel()
+        booksDao.create(authorTextField.text, titleTextField.text, false)
     }
 }

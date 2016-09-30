@@ -1,9 +1,11 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "../persistence"
 
 
 Page {
     id: mainPage
+
     SilicaFlickable {
         anchors.fill: parent
 
@@ -24,7 +26,9 @@ Page {
 
             Button {
                 text: qsTr("To Read")
-                onClicked: pageStack.push(Qt.resolvedUrl("ToReadPage.qml"))
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("ToReadPage.qml"))
+                }
             }
             Button {
                 text: qsTr("Finished")
