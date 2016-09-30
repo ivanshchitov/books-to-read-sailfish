@@ -46,7 +46,7 @@ Page {
                 MenuItem {
                     text: finished ? qsTr("Mark as To Read") : qsTr("Mark as Finished")
                     onClicked:{
-                        booksDao.updateBook(id, author, title, finished ? 0 : 1);
+                        booksDao.update(id, author, title, finished ? 0 : 1);
                         if (booksState == BooksStateEnum.All) {
                             listView.model.updateBook(model.index, author, title, !finished);
                         } else {
@@ -60,7 +60,7 @@ Page {
                         var dialog = pageStack.push(Qt.resolvedUrl("EditBookDialog.qml"),
                                               {author: author, title: title})
                         dialog.accepted.connect(function() {
-                            booksDao.updateBook(id, dialog.author, dialog.title, finished ? 1 : 0);
+                            booksDao.update(id, dialog.author, dialog.title, finished ? 1 : 0);
                             listView.model.updateBook(model.index, dialog.author, dialog.title, finished);
                         });
                     }

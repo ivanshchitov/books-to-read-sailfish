@@ -43,7 +43,7 @@ Dialog {
         }
     }
 
-    onDone: {
+    onAccepted: {
         author = authorTextField.text;
         title = titleTextField.text;
     }

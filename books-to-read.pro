@@ -42,7 +42,8 @@ DISTFILES += \
     qml/pages/EditBookDialog.qml \
     qml/persistence/BooksDao.qml \
     qml/persistence/BookListModel.qml \
-    qml/pages/BooksPage.qml
+    qml/pages/BooksPage.qml \
+    qml/AddBookPullDownMenu.xml
 
 HEADERS += \
     bookstateenum.h
