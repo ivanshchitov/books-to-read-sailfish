@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import org.fruct.yar 1.0
 import "../persistence"
 
 
@@ -26,17 +27,15 @@ Page {
 
             Button {
                 text: qsTr("To Read")
-                onClicked: {
-                    pageStack.push(Qt.resolvedUrl("ToReadPage.qml"))
-                }
+                onClicked: pageStack.push(Qt.resolvedUrl("BooksPage.qml"), {booksState: BooksStateEnum.ToRead})
             }
             Button {
                 text: qsTr("Finished")
-                onClicked: pageStack.push(Qt.resolvedUrl("FinishedPage.qml"))
+                onClicked: pageStack.push(Qt.resolvedUrl("BooksPage.qml"), {booksState: BooksStateEnum.Finished})
             }
             Button {
                 text: qsTr("All Books")
-                onClicked: pageStack.push(Qt.resolvedUrl("AllBooksPage.qml"))
+                onClicked: pageStack.push(Qt.resolvedUrl("BooksPage.qml"), {booksState: BooksStateEnum.All})
             }
         }
     }

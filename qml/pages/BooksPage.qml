@@ -1,15 +1,29 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import org.fruct.yar 1.0
 import "../persistence"
 
 Page {
-    id: toReadPage
+
+    property int booksState
+
     BooksDao {id: booksDao}
     BookListModel {id: bookListModel}
+
     SilicaListView {
         id: listView
         anchors.fill: parent
-        header: PageHeader { title: qsTr("To Read") }
+        header: PageHeader {
+            title: {
+                if (booksState == BooksStateEnum.ToRead) {
+                    qsTr("To Read")
+                } else if (booksState == BooksStateEnum.Finished) {
+                    qsTr("Finished")
+                } else {
+                    qsTr("All books")
+                }
+            }
+        }
         model: bookListModel
         delegate: ListItem {
             Column {
@@ -17,6 +31,7 @@ Page {
                     id: titleLabel
                     text: title
                     x: Theme.horizontalPageMargin
+                    font.strikeout: finished ? true : false
                 }
                 Label {
                     id: authorLabel
@@ -39,14 +54,13 @@ Page {
             }
         }
         function displayBooks() {
-            booksDao.retrieveAllBooks(function(books) {
+            booksDao.retrieveBooks(booksState, function(books) {
                 for (var i = 0; i < books.length; i++) {
                     var book = books.item(i);
                     listView.model.addBook(book.author, book.title, book.finished === 1)
                 }
             })
         }
-
         Component.onCompleted: displayBooks()
     }
 }

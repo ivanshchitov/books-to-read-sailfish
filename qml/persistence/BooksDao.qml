@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.LocalStorage 2.0
+import org.fruct.yar 1.0
 
 Item {
     property string booksTableName: "books";
@@ -28,11 +29,16 @@ Item {
         });
     }
 
-
-    function retrieveAllBooks(callback) {
+    function retrieveBooks(booksState, callback) {
         database = LocalStorage.openDatabaseSync("books-to-read", "1.0");
         database.readTransaction(function(tx) {
-            var result = tx.executeSql("SELECT * FROM " + booksTableName);
+            var whereFinished = "";
+            if (booksState === BooksStateEnum.ToRead) {
+                whereFinished = " WHERE finished = 0";
+            } else if (booksState === BooksStateEnum.Finished) {
+                whereFinished = " WHERE finished = 1";
+            }
+            var result = tx.executeSql("SELECT * FROM " + booksTableName + whereFinished);
             callback(result.rows)
         });
     }

@@ -2,21 +2,9 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
-    <name>AllBooksPage</name>
+    <name>BooksPage</name>
     <message>
-        <source>Finished</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Book</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Author</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mark as To Read</source>
+        <source>To Read</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -29,6 +17,14 @@
     </message>
     <message>
         <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All books</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -63,33 +59,6 @@
     </message>
 </context>
 <context>
-    <name>FinishedPage</name>
-    <message>
-        <source>Finished</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Book</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Author</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mark as To Read</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Edit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>MainPage</name>
     <message>
         <source>Add a book</source>
@@ -109,25 +78,6 @@
     </message>
     <message>
         <source>All Books</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ToReadPage</name>
-    <message>
-        <source>To Read</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mark as Finished</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Edit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

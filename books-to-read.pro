@@ -39,13 +39,12 @@ TRANSLATIONS += translations/books-to-read-de.ts
 
 DISTFILES += \
     qml/pages/MainPage.qml \
-    qml/pages/ToReadPage.qml \
     qml/pages/EditBookDialog.qml \
-    qml/pages/FinishedPage.qml \
-    qml/pages/AllBooksPage.qml \
     qml/persistence/BooksDao.qml \
-    qml/persistence/BookListModel.qml
+    qml/persistence/BookListModel.qml \
+    qml/pages/BooksPage.qml
 
-HEADERS +=
+HEADERS += \
+    bookstateenum.h
 
 QT += sql
