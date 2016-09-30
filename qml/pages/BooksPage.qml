@@ -2,6 +2,7 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import org.fruct.yar 1.0
 import "../persistence"
+import "../menu"
 
 Page {
 
@@ -11,6 +12,9 @@ Page {
     BookListModel {id: bookListModel}
 
     SilicaListView {
+
+        AddBookPullDownMenu {}
+
         id: listView
         anchors.fill: parent
         currentIndex: 0

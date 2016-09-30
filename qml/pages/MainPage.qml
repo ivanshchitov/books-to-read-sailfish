@@ -2,6 +2,7 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import org.fruct.yar 1.0
 import "../persistence"
+import "../menu"
 
 
 Page {
@@ -12,17 +13,8 @@ Page {
     SilicaFlickable {
         anchors.fill: parent
 
-        PullDownMenu {
-            MenuItem {
-                text: qsTr("Add a book")
-                onClicked: {
-                    var dialog = pageStack.push(Qt.resolvedUrl("EditBookDialog.qml"))
-                    dialog.accepted.connect(function() {
-                        booksDao.create(dialog.author, dialog.title, false);
-                    })
-                }
-            }
-        }
+        AddBookPullDownMenu {}
+
         PageHeader {
             id: header
             width: parent.width

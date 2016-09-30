@@ -43,7 +43,8 @@ DISTFILES += \
     qml/persistence/BooksDao.qml \
     qml/persistence/BookListModel.qml \
     qml/pages/BooksPage.qml \
-    qml/AddBookPullDownMenu.xml
+    qml/AddBookPullDownMenu.xml \
+    qml/menu/AddBookPullDownMenu.qml
 
 HEADERS += \
     bookstateenum.h

@@ -2,6 +2,13 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
+    <name>AddBookPullDownMenu</name>
+    <message>
+        <source>Add a book</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>BooksPage</name>
     <message>
         <source>To Read</source>
@@ -64,10 +71,6 @@
 </context>
 <context>
     <name>MainPage</name>
-    <message>
-        <source>Add a book</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <source>Books to read</source>
         <translation type="unfinished"></translation>

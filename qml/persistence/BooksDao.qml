@@ -21,11 +21,12 @@ Item {
         });
     }
 
-    function create(author, title, finished) {
+    function create(author, title, finished, callback) {
         database.transaction(function(tx) {
-            tx.executeSql("INSERT INTO " + booksTableName + "("
+            var results = tx.executeSql("INSERT INTO " + booksTableName + "("
                           + authorField + ", " + titleField + ", " + finishedField
                           + ") VALUES(?, ?, ?)", [author, title, finished ? 1 : 0]);
+            callback(parseInt(results.insertId));
         });
     }
 
