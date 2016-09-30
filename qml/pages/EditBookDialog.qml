@@ -8,6 +8,8 @@ Dialog {
     property string author
     property string title
 
+    canAccept: authorTextField.text.length > 0 && titleTextField.text.length > 0
+
     DialogHeader {
         id: header
         title: qsTr("Add a book to read")

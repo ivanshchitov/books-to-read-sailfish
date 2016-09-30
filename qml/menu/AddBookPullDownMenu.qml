@@ -13,7 +13,7 @@ PullDownMenu {
                 var insertId = booksDao.create(
                            dialog.author, dialog.title, false,
                            function(insertId) {
-                               if (booksState != BooksStateEnum.Finished) {
+                               if (booksState !== "undefined" && booksState !== BooksStateEnum.Finished) {
                                     listView.model.addBookByIndex(0, insertId, dialog.author, dialog.title, false);
                                }
                            });
