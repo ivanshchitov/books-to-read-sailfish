@@ -44,6 +44,15 @@ Item {
         });
     }
 
+    function retrieveLastAddedBook(callback) {
+        database = LocalStorage.openDatabaseSync("books-to-read", "1.0");
+        database.readTransaction(function(tx) {
+            var result = tx.executeSql("SELECT * FROM " + booksTableName
+                                       + " WHERE finished = 0 ORDER BY id DESC LIMIT 1");
+            callback(result.rows.item(0));
+        });
+    }
+
     function update(id, author, title, finished) {
         database = LocalStorage.openDatabaseSync("books-to-read", "1.0");
         database.transaction(function(tx) {

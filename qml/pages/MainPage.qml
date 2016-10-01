@@ -8,6 +8,8 @@ import "../menu"
 Page {
     id: mainPage
 
+    property var coverPage: appWindow.cover
+
     BooksDao {id: booksDao}
 
     SilicaFlickable {
@@ -26,15 +28,15 @@ Page {
 
             Button {
                 text: qsTr("To Read")
-                onClicked: pageStack.push(Qt.resolvedUrl("BooksPage.qml"), {booksState: BooksStateEnum.ToRead})
+                onClicked: pageStack.push(Qt.resolvedUrl("BooksPage.qml"), {booksState: BooksStateEnum.ToRead, coverPage: coverPage})
             }
             Button {
                 text: qsTr("Finished")
-                onClicked: pageStack.push(Qt.resolvedUrl("BooksPage.qml"), {booksState: BooksStateEnum.Finished})
+                onClicked: pageStack.push(Qt.resolvedUrl("BooksPage.qml"), {booksState: BooksStateEnum.Finished, coverPage: coverPage})
             }
             Button {
                 text: qsTr("All Books")
-                onClicked: pageStack.push(Qt.resolvedUrl("BooksPage.qml"), {booksState: BooksStateEnum.All})
+                onClicked: pageStack.push(Qt.resolvedUrl("BooksPage.qml"), {booksState: BooksStateEnum.All, coverPage: coverPage})
             }
         }
     }

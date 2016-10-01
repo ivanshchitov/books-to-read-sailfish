@@ -7,6 +7,7 @@ import "../menu"
 Page {
 
     property int booksState
+    property var coverPage
 
     BooksDao {id: booksDao}
     BookListModel {id: bookListModel}
@@ -18,6 +19,7 @@ Page {
         id: listView
         anchors.fill: parent
         currentIndex: 0
+        VerticalScrollDecorator {}
         header: PageHeader {
             title: {
                 if (booksState == BooksStateEnum.ToRead) {
@@ -56,6 +58,7 @@ Page {
                         } else {
                             listView.model.remove(model.index)
                         }
+                        coverPage.update()
                     }
                 }
                 MenuItem {
@@ -66,6 +69,7 @@ Page {
                         dialog.accepted.connect(function() {
                             booksDao.update(id, dialog.author, dialog.title, finished ? 1 : 0);
                             listView.model.updateBook(model.index, dialog.author, dialog.title, finished);
+                            coverPage.update();
                         });
                     }
                 }
@@ -73,11 +77,13 @@ Page {
                     text: qsTr("Delete")
                     onClicked: {
                         booksDao.deleteBook(id);
-                        listView.model.remove(model.index)
+                        listView.model.remove(model.index);
+                        coverPage.update();
                     }
                 }
             }
         }
+
         function displayBooks() {
             listView.model.clear();
             booksDao.retrieveBooks(booksState, function(books) {

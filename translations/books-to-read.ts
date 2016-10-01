@@ -45,6 +45,14 @@
         <source>Books to read</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Last added:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> by </source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>EditBookDialog</name>
