@@ -44,7 +44,7 @@ Item {
         });
     }
 
-    function updateBook(id, author, title, finished) {
+    function update(id, author, title, finished) {
         database = LocalStorage.openDatabaseSync("books-to-read", "1.0");
         database.transaction(function(tx) {
             tx.executeSql("UPDATE " + booksTableName
